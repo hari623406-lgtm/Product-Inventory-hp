@@ -1,29 +1,44 @@
 {
-  "name": "wrappy",
-  "version": "1.0.2",
-  "description": "Callback wrapping utility",
-  "main": "wrappy.js",
-  "files": [
-    "wrappy.js"
+  "name": "cookie",
+  "description": "HTTP server cookie parsing and serialization",
+  "version": "0.7.2",
+  "author": "Roman Shtylman <shtylman@gmail.com>",
+  "contributors": [
+    "Douglas Christopher Wilson <doug@somethingdoug.com>"
   ],
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {},
+  "license": "MIT",
+  "keywords": [
+    "cookie",
+    "cookies"
+  ],
+  "repository": "jshttp/cookie",
   "devDependencies": {
-    "tap": "^2.3.1"
+    "beautify-benchmark": "0.2.4",
+    "benchmark": "2.1.4",
+    "eslint": "8.53.0",
+    "eslint-plugin-markdown": "3.0.1",
+    "mocha": "10.2.0",
+    "nyc": "15.1.0",
+    "safe-buffer": "5.2.1",
+    "top-sites": "1.1.194"
+  },
+  "files": [
+    "HISTORY.md",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md",
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">= 0.6"
   },
   "scripts": {
-    "test": "tap --coverage test/*.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/npm/wrappy"
-  },
-  "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/npm/wrappy/issues"
-  },
-  "homepage": "https://github.com/npm/wrappy"
+    "bench": "node benchmark/index.js",
+    "lint": "eslint .",
+    "test": "mocha --reporter spec --bail --check-leaks test/",
+    "test-ci": "nyc --reporter=lcov --reporter=text npm test",
+    "test-cov": "nyc --reporter=html --reporter=text npm test",
+    "update-bench": "node scripts/update-benchmark.js"
+  }
 }
